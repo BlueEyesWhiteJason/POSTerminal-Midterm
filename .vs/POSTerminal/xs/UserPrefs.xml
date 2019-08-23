@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{802E5CBA-AE7C-4A89-B1D8-CB0E876C567D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="POSTerminal/Program.cs">
+    <Files>
+      <File FileName="POSTerminal/Program.cs" Line="9" Column="51" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="POSTerminal" expanded="True">
+            <Node name="POSTerminal" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.POSTerminal FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
