@@ -688,28 +688,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/jason/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\moise\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jason/Projects/POSTerminal/POSTerminal/POSTerminal.csproj",
+      "projectUniqueName": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
       "projectName": "POSTerminal",
-      "projectPath": "/Users/jason/Projects/POSTerminal/POSTerminal/POSTerminal.csproj",
-      "packagesPath": "/Users/jason/.nuget/packages/",
-      "outputPath": "/Users/jason/Projects/POSTerminal/POSTerminal/obj/",
+      "projectPath": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
+      "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/jason/.config/NuGet/NuGet.Config"
+        "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
