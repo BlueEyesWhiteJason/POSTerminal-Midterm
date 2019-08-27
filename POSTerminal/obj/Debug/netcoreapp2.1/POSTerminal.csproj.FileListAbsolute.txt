@@ -1,0 +1,11 @@
+/Users/jason/Projects/POSTerminal/POSTerminal/bin/Debug/netcoreapp2.1/POSTerminal.deps.json
+/Users/jason/Projects/POSTerminal/POSTerminal/bin/Debug/netcoreapp2.1/POSTerminal.runtimeconfig.json
+/Users/jason/Projects/POSTerminal/POSTerminal/bin/Debug/netcoreapp2.1/POSTerminal.runtimeconfig.dev.json
+/Users/jason/Projects/POSTerminal/POSTerminal/bin/Debug/netcoreapp2.1/POSTerminal.dll
+/Users/jason/Projects/POSTerminal/POSTerminal/bin/Debug/netcoreapp2.1/POSTerminal.pdb
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.csprojAssemblyReference.cache
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.csproj.CoreCompileInputs.cache
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.AssemblyInfoInputs.cache
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.AssemblyInfo.cs
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.dll
+/Users/jason/Projects/POSTerminal/POSTerminal/obj/Debug/netcoreapp2.1/POSTerminal.pdb
