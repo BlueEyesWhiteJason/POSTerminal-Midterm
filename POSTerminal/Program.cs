@@ -16,7 +16,9 @@ namespace POSTerminal
             Console.WriteLine("Hello World heeelo !");
 
             ShowList(shoes);
-            Payment(1000);
+            Payment(49.95);
+
+            
         }
 
         public static void ShowList(List<Product> shoes)
@@ -32,39 +34,41 @@ namespace POSTerminal
             Console.WriteLine("How will you be making your payment today?");
             Console.WriteLine("1. Cash");
             Console.WriteLine("2. Credit");
-            Console.WriteLine("3. Check");   
-
+            Console.WriteLine("3. Check");
+            Payment c;
             while (true)
             {
-                int num = int.Parse(Console.ReadLine()); //TODO validation
+              
+                int num = int.Parse(Console.ReadLine()); //TODO int validation
+
+          
+       
                 if (num == 1)
                 {
-                    Payment c = new Cash();
-                    c.GetPaymentInfo(total);
+                    c = new Cash();
                     break;
                     
                 }
                 else if (num == 2)
                 {
-                    Payment c = new Credit();
-                    c.GetPaymentInfo(total);
-
+                    c = new Credit();
                     break;
 
 
                 }
                 else if (num == 3)
                 {
-                    Payment c = new Check();
-                    c.GetPaymentInfo(total);
-
+                    c = new Check();
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Please choose the number from the list");
+                    Console.WriteLine("Please choose a number from the list: ");
                 }
+     
             }
+            c.GetPaymentInfo(total);
+            c.PrintToReceipt(total);
         }
     }
 }

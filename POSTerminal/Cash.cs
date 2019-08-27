@@ -3,6 +3,8 @@ namespace POSTerminal
 {
     public class Cash: Payment
     {
+        double change;
+        double dosh;
         public Cash()
         {
         }
@@ -11,13 +13,18 @@ namespace POSTerminal
         {
             Console.WriteLine("How much cash will you be giving us today?");
 
-            double dosh = double.Parse(Console.ReadLine());
+            dosh = double.Parse(Console.ReadLine());
 
-            double change = dosh - total;
+            change = dosh - total;
 
-            //TODO format change output
-            Console.WriteLine($"Your change today is {change}");
-            
+         
+        }
+
+        public override void PrintToReceipt(double total)
+        {
+            Console.WriteLine($"Total: {total}");
+            Console.WriteLine($"Cash tendered: {dosh}");
+            Console.WriteLine($"Change owed: {change}");
         }
     }
 }

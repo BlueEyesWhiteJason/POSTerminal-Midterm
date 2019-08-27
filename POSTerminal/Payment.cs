@@ -7,5 +7,7 @@ namespace POSTerminal
         {
         }
         abstract public void GetPaymentInfo(double total);
+
+        abstract public void PrintToReceipt(double total);
     }
 }

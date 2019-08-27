@@ -4,7 +4,8 @@ namespace POSTerminal
     public class Check: Payment
     {
 
-        
+        int checkNum;
+        int total { get; set; }
         public Check()
         {
         }
@@ -13,7 +14,13 @@ namespace POSTerminal
         public override void GetPaymentInfo(double total)
         {
             Console.WriteLine("Please enter the check number:");
-            int checkNum = int.Parse(Console.ReadLine());
+            checkNum = int.Parse(Console.ReadLine());
+        }
+
+        public override void PrintToReceipt(double total)
+        {
+            Console.WriteLine($"{total} paid by check number {checkNum}");
+            
         }
     }
 }
