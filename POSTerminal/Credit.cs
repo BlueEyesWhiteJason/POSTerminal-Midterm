@@ -12,10 +12,15 @@ namespace POSTerminal
         int ccv;
         override public void GetPaymentInfo(double total)
         {
-            Console.WriteLine("Please enter your Credit Card Number:");
-            ccNum = Console.ReadLine(); //getting exceptions for ints and longs?
-
-            Console.WriteLine(CheckCreditCard(ccNum)); 
+            
+            do
+            {
+                Console.WriteLine("Please enter your Credit Card Number:");
+                ccNum = Console.ReadLine(); //getting exceptions for ints and longs?
+                Console.WriteLine(CheckCreditCard(ccNum));
+            }
+            while (CheckCreditCard(ccNum) == "INVALID");
+       
 
             //TODO input validation (REGEX?)
             Console.WriteLine("Please enter the expiration date:");
@@ -35,9 +40,19 @@ namespace POSTerminal
            
         }
 
+        // My own code from a previous project done in C
         public static string CheckCreditCard(string ccNum)
         {
-            long number = long.Parse(ccNum);
+            long number;
+            try
+            {
+                number = long.Parse(ccNum);
+            }
+            catch (FormatException e)
+            {
+                return "INVALID";
+            }
+            
             long digit;
             long sum = 0;
             long part;
