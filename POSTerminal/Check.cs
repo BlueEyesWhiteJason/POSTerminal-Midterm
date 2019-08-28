@@ -5,7 +5,7 @@ namespace POSTerminal
     {
 
         int checkNum;
-        int total { get; set; }
+        //int total { get; set; }
         public Check()
         {
         }
