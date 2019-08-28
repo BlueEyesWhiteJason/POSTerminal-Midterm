@@ -7,19 +7,63 @@ namespace POSTerminal
     {
         static void Main(string[] args)
         {
-           
+            string answer;
+            int a;
+            Product p = new Product();
             Console.WriteLine("Hello! Welcome to KMJ Shoe shop");
             List<Product> productList = new List<Product>();
-
-            productList.Add(new Product("Sneakers", "Sport use", "Sports", 37.99));
-            productList.Add(new Product("Mens Boot", "Summer use", "Hicking", 60.99));
-            for (int i = 0; i < productList.Count; i++)
+            List<Product> myProductList = p.GetProductsList(productList);
+            for (int i = 0; i < myProductList.Count; i++)
             {
-                Console.WriteLine($"{i}. " + productList[i]);
+                Console.WriteLine($"{i}. " + myProductList[i]);
             }
+
             Console.WriteLine();
-            Console.WriteLine("Here is Our Shoes ");
-          
+           
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Add To Cart");
+                    a = Convert.ToInt32(Console.ReadLine().Trim());
+                    Console.WriteLine(myProductList[a]);
+                    //Add to cart method
+
+                    Console.WriteLine("Continue? (y/n)");
+                     answer = Console.ReadLine().Trim().ToLower();
+                    if (answer == "y")
+                    {
+                        Console.WriteLine("Your cart list");
+                        //Display Cart list
+                        //Add to cart method
+                        continue;
+                    }
+                    else if (answer == "n")
+                    {
+                        Console.WriteLine("Your cart list");
+                        //Display Cart list
+                        //Payment method
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Unkown User input!");
+                        Console.WriteLine("Your cart list");
+                        //Display Cart list
+                        //Add to cart method
+                        continue;
+                    }
+
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
+                
+            }
+            
 
         }
     }
