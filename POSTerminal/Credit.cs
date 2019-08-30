@@ -9,10 +9,10 @@ namespace POSTerminal
 
         string ccNum;
         string ExpDate;
-        int ccv;
+        string ccv;
         override public void GetPaymentInfo(double total)
         {
-            
+            // CC NUmber
             do
             {
                 Console.WriteLine("Please enter your Credit Card Number:");
@@ -21,72 +21,60 @@ namespace POSTerminal
             }
             while (CheckCreditCardNum(ccNum) == "INVALID");
 
-
-            //TODO input validation (REGEX?)
-
-            //Console.WriteLine("Please enter the expiration date (integers:");
-            //while (!int.TryParse(Console.ReadLine(), out ExpDate))
-            //{
-            //    Console.WriteLine("Invalid Format!");
-            //    Console.WriteLine("Please use the format MMYY with only integers:");
-            //}
-
-
+            // Exp date
             do
             {
                 Console.WriteLine("Expiration Date:");
-                ExpDate = Console.ReadLine(); 
+                ExpDate = Console.ReadLine().Trim(); 
                 Console.WriteLine(CheckCCExp(ExpDate));
             }
             while (CheckCCExp(ExpDate) == "Credit Card Expired" || CheckCCExp(ExpDate) == "Invalid, use numerical format MMYY");
 
-
-
-
-
-
-            Console.WriteLine("Please enter the 3-digit CCV on the back of your card:");
-           
-            bool validIn = false;
-            string ccvIn;
-            while (!validIn)
+            //CCV
+            do
             {
-                // validIn = true;
-                ccvIn = Console.ReadLine().Trim();
-
-
-                try
-                {
-                    ccv = int.Parse(ccvIn);
-
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Invalid Input!");
-                    Console.WriteLine("Please enter your 3-digit CCV");
-                    validIn = false;
-                    continue;
-                }
-                if (ccvIn.Length != 3)
-                {
-                    Console.WriteLine("Input must be 3 digits:");
-                    validIn = false;
-                    continue;
-                }
-                validIn = true;
-
-
-
+                Console.WriteLine("CCV (3-digit number on the back of your card):");
+                ccv = Console.ReadLine().Trim();
             }
+            while (CheckCCV(ccv) == "Input must be 3 numbers");  
 
         }
 
+
+
         public override void PrintToReceipt(double total)
         {
+            Console.WriteLine(CheckCreditCardNum(ccNum));
             Console.WriteLine($"Number: {ccNum}");
             Console.WriteLine($"Exp. Date: {ExpDate}");
             Console.WriteLine($"CCV: {ccv}");
            
+        }
+
+        public static string CheckCCV(string ccv)
+        {
+            int ccvIn;
+           
+            // validIn = true;
+            //ccvIn = Console.ReadLine().Trim();
+
+            if (ccv.Length != 3)
+            {
+                return "Input must be 3 numbers";
+            }
+
+            try
+            {
+                ccvIn = int.Parse(ccv);
+
+            }
+            catch (FormatException e)
+            {
+                return "Input must be 3 numbers";
+            }
+
+            return "";
+            
         }
 
         public static string CheckCCExp(string ExpDate)
