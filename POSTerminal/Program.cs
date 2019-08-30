@@ -7,15 +7,7 @@ namespace POSTerminal
     {
         static void Main(string[] args)
         {
-            Product p1 = new Product();
-            Product p2 = new Product();
-            List<Product> shoes = new List<Product>();
-            shoes.Add(p1);
-            shoes.Add(p2);
-
-            Console.WriteLine("Hello World heeelo !");
-
-            ShowList(shoes);
+            
             Payment(49.95);
 
             

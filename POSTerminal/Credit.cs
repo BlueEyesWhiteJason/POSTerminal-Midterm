@@ -17,18 +17,67 @@ namespace POSTerminal
             {
                 Console.WriteLine("Please enter your Credit Card Number:");
                 ccNum = Console.ReadLine(); //getting exceptions for ints and longs?
-                Console.WriteLine(CheckCreditCard(ccNum));
+                Console.WriteLine(CheckCreditCardNum(ccNum));
             }
-            while (CheckCreditCard(ccNum) == "INVALID");
-       
+            while (CheckCreditCardNum(ccNum) == "INVALID");
+
 
             //TODO input validation (REGEX?)
-            Console.WriteLine("Please enter the expiration date:");
-            ExpDate = Console.ReadLine();
+
+            //Console.WriteLine("Please enter the expiration date (integers:");
+            //while (!int.TryParse(Console.ReadLine(), out ExpDate))
+            //{
+            //    Console.WriteLine("Invalid Format!");
+            //    Console.WriteLine("Please use the format MMYY with only integers:");
+            //}
+
+
+            do
+            {
+                Console.WriteLine("Expiration Date:");
+                ExpDate = Console.ReadLine(); 
+                Console.WriteLine(CheckCCExp(ExpDate));
+            }
+            while (CheckCCExp(ExpDate) == "Credit Card Expired" || CheckCCExp(ExpDate) == "Invalid, use numerical format MMYY");
+
+
+
+
+
 
             Console.WriteLine("Please enter the 3-digit CCV on the back of your card:");
+           
+            bool validIn = false;
+            string ccvIn;
+            while (!validIn)
+            {
+                // validIn = true;
+                ccvIn = Console.ReadLine().Trim();
 
-            ccv = int.Parse(Console.ReadLine());
+
+                try
+                {
+                    ccv = int.Parse(ccvIn);
+
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Invalid Input!");
+                    Console.WriteLine("Please enter your 3-digit CCV");
+                    validIn = false;
+                    continue;
+                }
+                if (ccvIn.Length != 3)
+                {
+                    Console.WriteLine("Input must be 3 digits:");
+                    validIn = false;
+                    continue;
+                }
+                validIn = true;
+
+
+
+            }
 
         }
 
@@ -40,8 +89,60 @@ namespace POSTerminal
            
         }
 
+        public static string CheckCCExp(string ExpDate)
+        {
+            string expIn = ExpDate;
+            char[] month = new char[2];
+            char[] year = new char[2];
+
+            if (expIn.Length != 4)
+            {
+                return "Invalid, use numerical format MMYY";
+            }
+
+            
+
+            month[0] = expIn[0]; month[1] = expIn[1]; year[0] = expIn[2]; year[1] = expIn[3];
+            try
+            {
+                int a = 10 * (month[0] - '0');
+                int b = (month[1] - '0');
+                int c = 10 * (year[0] - '0');
+                int d = year[1] - '0';
+
+                int mo = a + b;
+                
+                int yr = c + d;
+
+                if (mo < 1 || mo > 12 || yr < 00)
+                {
+                    return "Invalid, use numerical format MMYY";
+                }
+
+                if (yr < 19)
+                {
+                    return "Credit Card Expired";
+                }
+
+                if (yr == 19 && mo < 8)
+                {
+                    return "Credit Card Expired";
+                }
+
+                return "";
+
+            }
+            catch (FormatException e)
+            {
+                return "Invalid, use numerical format MMYY";
+            }
+ 
+        }
+
+
+
         // My own code from a previous project done in C
-        public static string CheckCreditCard(string ccNum)
+        public static string CheckCreditCardNum(string ccNum)
         {
             long number;
             try
@@ -105,6 +206,7 @@ namespace POSTerminal
             {
                 return "VISA";
             }
+
             else
             {
                 return "INVALID";
