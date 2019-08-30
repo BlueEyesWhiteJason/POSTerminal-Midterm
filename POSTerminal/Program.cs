@@ -36,6 +36,7 @@ namespace POSTerminal
         {
             //string answer;
             int a;
+            Cart c = new Cart();
             Product p = new Product();
             Console.WriteLine("Hello! Welcome to KMJ Shoe shop");
             List<Product> productList = new List<Product>();
@@ -67,16 +68,16 @@ namespace POSTerminal
                         total = quantity * myProductList[a].Price;
                         price += quantity * (myProductList[a].Price); // accessing price of shoe    
                         
-                         myCart.Add(new Cart( $"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity, total));
-                       // c.DisplayCart(myCart, a);
+                         myCart.Add(new Cart( $"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity));
                         for (int i = 0; i < myCart.Count; i++)
                         {
+                            Console.Write(i+1 +". ");
                             Console.Write(myCart[i].Quantity);
                             Console.Write(" " + myCart[i].Name);
                             Console.Write(" x " + myCart[i].Price);
                             Console.WriteLine(" = " + myCart[i].Total);
                         }
-                        Console.WriteLine("Your total: " + price);
+                        Console.WriteLine("Your total: $" + price);
 
 
                         bool goodAnswer = false;
@@ -91,15 +92,14 @@ namespace POSTerminal
                             }
                             else if (response == "no")
                             {
-                                answer = false;                               
-                               Console.WriteLine("Total to be paid: " + price);
-                               
-                              
+                                answer = false;
+                                Console.WriteLine("Cart Details");
+                                c.DisplayCart(myCart);
                                 
-                                for (int i = 0; i < myProductList.Count; i++)
-                                {
-                                    Console.WriteLine($"{i}. " + myProductList[i]);
-                                }
+                               Console.WriteLine("Total to be paid: $" + price);
+
+                                Console.ReadLine();
+                               
                                 Console.WriteLine();
                                 break;
                             }
