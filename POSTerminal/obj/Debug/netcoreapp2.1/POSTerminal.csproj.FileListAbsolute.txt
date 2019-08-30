@@ -9,3 +9,14 @@ C:\Users\moise\Desktop\New folder\POSTerminal-Midterm\POSTerminal\bin\Debug\netc
 C:\Users\moise\Desktop\New folder\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.pdb
 C:\Users\moise\Desktop\New folder\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.dll
 C:\Users\moise\Desktop\New folder\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.pdb
+E:\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.deps.json
+E:\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.runtimeconfig.json
+E:\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.runtimeconfig.dev.json
+E:\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.dll
+E:\POSTerminal-Midterm\POSTerminal\bin\Debug\netcoreapp2.1\POSTerminal.pdb
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.csprojAssemblyReference.cache
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.csproj.CoreCompileInputs.cache
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.AssemblyInfoInputs.cache
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.AssemblyInfo.cs
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.dll
+E:\POSTerminal-Midterm\POSTerminal\obj\Debug\netcoreapp2.1\POSTerminal.pdb

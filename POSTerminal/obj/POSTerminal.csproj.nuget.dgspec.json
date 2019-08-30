@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj": {}
+    "E:\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj": {
+    "E:\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
+        "projectUniqueName": "E:\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
         "projectName": "POSTerminal",
-        "projectPath": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
+        "projectPath": "E:\\POSTerminal-Midterm\\POSTerminal\\POSTerminal.csproj",
         "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moise\\Desktop\\New folder\\POSTerminal-Midterm\\POSTerminal\\obj\\",
+        "outputPath": "E:\\POSTerminal-Midterm\\POSTerminal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
