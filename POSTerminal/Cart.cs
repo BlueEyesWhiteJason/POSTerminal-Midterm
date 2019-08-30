@@ -8,51 +8,83 @@ namespace POSTerminal
 {
     public class Cart
     {
-        
+        public double SubTotal { get; set; }
+        public double SalesTax { get; set; }
+        public double total { get; set; }
+       
+        public int Quantity { get; set; }
+
+
         public Cart()
+
         {
-            /*double SubTotal;
-            double SalesTax;
-            double GrandTotal;*/
-            //SalesTax = SubTotal * .06;
+            
+
+
 
             string answer;
             int a;
             Product p = new Product();
-            Console.WriteLine("Hello! Welcome to KMJ Shoe shop");
+            Console.WriteLine("Hello! Welcome to The KMJ Shoe Shack. Please, take a gander.");
             List<Product> productList = new List<Product>();
             List<Product> myProductList = p.GetProductsList(productList);
             //have your own cart list
             List<Product> cart = new List<Product>();
-            for (int i = 0; i < myProductList.Count; i++)
+            for (int i = 1; i < myProductList.Count; i++)
             {
-                Console.WriteLine($"{i}. " + myProductList[i]);
+                Console.WriteLine($"{i}. " + myProductList[i].Name + " " + myProductList[i].Description + " " + myProductList[i].Category + " "+myProductList[i].Price);
+               
             }
 
             Console.WriteLine();
-            while (true)
-         
+
+            bool cont = true;
+            while (cont)
+            {//change output to not show quantity
+                //declare someplace if quantity >1 then quantity * mrPRoductList[a].Price
+                // change quantity and display only in cart
+
                 try
                 {
-                    Console.WriteLine("Add To Cart");
-                    a = Convert.ToInt32(Console.ReadLine().Trim());
-                    Console.WriteLine(myProductList[a]);
-                    //why can't i use my lsit of shoes
-                    cart.Add(myProductList[a]);
-                    //SubTotal = SubTotal + Convert.ToInt32(myProductList[a,5]);
-                        //ask how many of items
+                    Console.WriteLine("Which shoes would you like? I think they'd all suit you. (enter a number 1-11)");
+                    a = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine(myProductList[a].Name + " " + myProductList[a].Description + " " + myProductList[a].Category + " $" + myProductList[a].Price);
 
-                    Console.WriteLine("Continue? (y/n)");
+                    Console.WriteLine("How many pairs do you want?");
+                    int quantity = Convert.ToInt32(Console.ReadLine());
+                    if (quantity == 1)
+                    {
+                        Console.WriteLine("Perfect! We've got one pair for you right here.");
+                        Console.WriteLine($"" + quantity + "x " + (myProductList[a]).Name + " x " + (myProductList[a]).Price + " = " + ((myProductList[a]).Price * quantity));
+                    }
+                    else if (quantity > 1)
+                    {
+                        Console.WriteLine("Fantastic, we've got those pairs for you right here.");
+                        Console.WriteLine($"" + quantity + "x " + (myProductList[a]).Name + " x " + (myProductList[a]).Price + " = " + ((myProductList[a]).Price * quantity));
+                        (myProductList[a]).Quantity = quantity;
+                        (myProductList[a]).Price = (myProductList[a]).Price * quantity;
+                    }
+                    else
+                    {
+                        Console.WriteLine("error message because they put in zero");
+                    }
+
+                    Console.WriteLine("Would you like to add these to your cart? (y/n)");
                     answer = Console.ReadLine().Trim().ToLower();
                     if (answer == "y")
                     {
-                        Console.WriteLine("Your cart list");
+                        cart.Add(myProductList[a]);
+
+                        SubTotal = SubTotal + (myProductList[a].Price);
+                        Console.WriteLine("Here's your current cart:");
+
                         for (int i = 0; i < cart.Count; i++)
                         {
-                            Console.WriteLine($"{i+1}. " + cart[i]);
+                            Console.WriteLine($"{i+1}. " + " x" + cart[i].Quantity + " " + (cart[i]).Name + " $" + cart[i].Price);
                         }
-                        
-                        continue;
+
+                        Console.WriteLine("\nYour current subtotal is: $" + SubTotal);
+
                     }
                     else if (answer == "n")
                     {
@@ -62,35 +94,110 @@ namespace POSTerminal
                         }
                         else
                         {
-                            Console.WriteLine("Your cart list");
+                            Console.WriteLine("Here's your current cart:");
                             for (int i = 0; i < cart.Count; i++)
                             {
-                                Console.WriteLine($"{i+1}. " + cart[i]);
+                                Console.WriteLine($"{i + 1}. " + " x" + cart[i].Quantity + " " + (cart[i]).Name + " $" + cart[i].Price);
                             }
-                            //Payment method
+                            Console.WriteLine("\nYour current subtotal is: " + SubTotal);
+
                         }
 
 
-                        break;
+
                     }
                     else
                     {
                         Console.WriteLine("Unkown User input!");
-                        Console.WriteLine("Your cart list");
-                        //Display Cart list
-                        //Add to cart method
-                        continue;
+                        Console.WriteLine("Here's your current cart:");
+                        for (int i = 0; i < cart.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}. " + " x" + cart[i].Quantity + " " + (cart[i]).Name + " $" + cart[i].Price);
+                        }
+                        Console.WriteLine("\nYour current subtotal is: $" + SubTotal);
+                        
                     }
 
                 }
+
                 catch (Exception e)
                 {
 
                     Console.WriteLine(e.Message);
-                    continue;
+                    //continue;
                 }
+
+                
+                Console.WriteLine("\nWould you like to keep looking? (enter y/n):");
+                string option = Console.ReadLine();
+
+                if (option == "y")
+                {
+                    cont = true;
+                }
+                else if (option == "n")
+                {
+                    Console.WriteLine("Here's your current cart:");
+                    for (int i = 0; i < cart.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. " + " x" + cart[i].Quantity + " " + (cart[i]).Name + " $" + cart[i].Price);
+                    }
+                    cont = false;
+                    SalesTax = SubTotal * .06;
+                    total = SubTotal + SalesTax;
+                    Console.WriteLine($"\nSubtotal: $" + SubTotal.ToString("#.##"));
+                    Console.WriteLine($"Sales Tax: $" + SalesTax.ToString("#.##"));
+                    Console.WriteLine($"Grand Total: $" + total.ToString("0.##"));
+
+                }
+
             }
+            Payment(total);
+
         }
+        public static void Payment(double total)
+        {
+            Console.WriteLine("\nHow will you be making your payment today?");
+            Console.WriteLine("1. Cash");
+            Console.WriteLine("2. Credit");
+            Console.WriteLine("3. Check");
+            Payment c;
+            while (true)
+            {
+
+                int num = int.Parse(Console.ReadLine()); //TODO int validation
+
+
+
+                if (num == 1)
+                {
+                    c = new Cash();
+                    break;
+
+                }
+                else if (num == 2)
+                {
+                    c = new Credit();
+                    break;
+
+
+                }
+                else if (num == 3)
+                {
+                    c = new Check();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please choose a number from the list: ");
+                }
+
+            }
+            c.GetPaymentInfo(total);
+            c.PrintToReceipt(total);
+        }
+    }
+}
 
         
         
@@ -124,5 +231,5 @@ namespace POSTerminal
 
 
 
-    }
+    
 
