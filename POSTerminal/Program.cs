@@ -7,21 +7,13 @@ namespace POSTerminal
     {
         static void Main(string[] args)
         {
-            
-            Payment(49.95);
+
+            MakePayment(49.95);
 
             
         }
 
-        public static void ShowList(List<Product> shoes)
-        {    
-            for (int i = 0; i < shoes.Count; i++)
-            {
-                Console.WriteLine($"{i+1}. {shoes[i]}");
-            }
-        }
-
-        public static void Payment(double total)
+        public static void MakePayment(double total)
         {
             Console.WriteLine("How will you be making your payment today?");
             Console.WriteLine("1. Cash");
