@@ -5,32 +5,7 @@ namespace POSTerminal
 {
     class Program
     {
-        public static void Looping()
-        {
-            bool goodAnswer = false;
-            string response;
-            while (goodAnswer == false)
-            {
-                Console.WriteLine("Would you like to continue? (yes/no)");
-                response = Console.ReadLine();
-                if (response == "yes" || response == "Yes")
-                {
-                    break;
-                }
-                else if (response == "no" || response == "No")
-                {
-                    answer = false;
-                    Console.WriteLine("Goodbye!");
-                    Console.ReadLine();
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Unkwown Answer!!!");
-                    continue;
-                }
-            }
-        }
+
         public static bool answer = true;
         static void Main(string[] args)
         {
@@ -43,7 +18,7 @@ namespace POSTerminal
             List<Product> myProductList = p.GetProductsList(productList);
             for (int i = 0; i < myProductList.Count; i++)
             {
-                Console.WriteLine($"{i+1}. " + myProductList[i]);
+                Console.WriteLine($"{i + 1}. " + myProductList[i]);
             }
             Console.WriteLine();
 
@@ -53,9 +28,9 @@ namespace POSTerminal
                 {
 
                     string input;
-                    double price = 0;
+                    decimal price = 0;
                     int quantity = 0;
-                    double total = 1;
+                    decimal total = 1;
                     List<Cart> myCart = new List<Cart>();
                     while (true)
                     {
@@ -63,23 +38,14 @@ namespace POSTerminal
                         Console.WriteLine();
                         input = Console.ReadLine().Trim().ToLower();
                         Console.WriteLine("Enter quantity: ");
-                        a = Convert.ToInt32(input)-1;
+                        a = Convert.ToInt32(input) - 1;
                         quantity = Convert.ToInt32(Console.ReadLine());
+                       
                         total = quantity * myProductList[a].Price;
-                        price += quantity * (myProductList[a].Price); // accessing price of shoe    
-                        
-                         myCart.Add(new Cart( $"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity));
-                        for (int i = 0; i < myCart.Count; i++)
-                        {
-                            Console.Write(i+1 +". ");
-                            Console.Write(myCart[i].Quantity);
-                            Console.Write(" " + myCart[i].Name);
-                            Console.Write(" x " + myCart[i].Price);
-                            Console.WriteLine(" = " + myCart[i].Total);
-                        }
-                        Console.WriteLine("Your total: $" + price);
-
-
+                        price += quantity * (myProductList[a].Price); // accessing price of shoe                        
+                        myCart.Add(new Cart($"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity));
+                        c.DisplayCart(myCart);
+                        c.CulateTotalPrice(myCart);                      
                         bool goodAnswer = false;
                         string response;
                         while (goodAnswer == false)
@@ -94,12 +60,20 @@ namespace POSTerminal
                             {
                                 answer = false;
                                 Console.WriteLine("Cart Details");
-                                c.DisplayCart(myCart);
-                                
-                               Console.WriteLine("Total to be paid: $" + price);
-
+                                c.DisplayCart(myCart);                                
+                                c.CulateTotalPrice(myCart);
+                                Console.WriteLine("do you wish to remove any item?(y/n)");
+                               string rm= Console.ReadLine().Trim().ToLower();
+                                if (rm == "y")
+                                {
+                                    Console.WriteLine("Enter item number");
+                                    int rmv = Convert.ToInt32(Console.ReadLine());
+                                    c.RemoveShoeFromList(myCart,rmv);
+                                    Console.WriteLine("Cart Details");
+                                    c.DisplayCart(myCart);
+                                    c.CulateTotalPrice(myCart);
+                                }
                                 Console.ReadLine();
-                               
                                 Console.WriteLine();
                                 break;
                             }
@@ -109,7 +83,7 @@ namespace POSTerminal
                                 continue;
                             }
                         }
-                        }
+                    }
 
                 }
                 catch (Exception e)
