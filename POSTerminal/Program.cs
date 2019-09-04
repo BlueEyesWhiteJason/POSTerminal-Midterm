@@ -40,12 +40,12 @@ namespace POSTerminal
                         Console.WriteLine("Enter quantity: ");
                         a = Convert.ToInt32(input) - 1;
                         quantity = Convert.ToInt32(Console.ReadLine());
-                       
+
                         total = quantity * myProductList[a].Price;
                         price += quantity * (myProductList[a].Price); // accessing price of shoe                        
                         myCart.Add(new Cart($"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity));
                         c.DisplayCart(myCart);
-                        c.CulateTotalPrice(myCart);                      
+                        //   c.CulateTotalPrice(myCart);                      
                         bool goodAnswer = false;
                         string response;
                         while (goodAnswer == false)
@@ -60,22 +60,41 @@ namespace POSTerminal
                             {
                                 answer = false;
                                 Console.WriteLine("Cart Details");
-                                c.DisplayCart(myCart);                                
+                                c.DisplayCart(myCart);
                                 c.CulateTotalPrice(myCart);
-                                Console.WriteLine("do you wish to remove any item?(y/n)");
-                               string rm= Console.ReadLine().Trim().ToLower();
-                                if (rm == "y")
+                                while (true)
                                 {
-                                    Console.WriteLine("Enter item number");
-                                    int rmv = Convert.ToInt32(Console.ReadLine());
-                                    c.RemoveShoeFromList(myCart,rmv);
-                                    Console.WriteLine("Cart Details");
-                                    c.DisplayCart(myCart);
-                                    c.CulateTotalPrice(myCart);
+                                    Console.WriteLine("do you wish to remove any item?(y/n)");
+                                    string rm = Console.ReadLine().Trim().ToLower();
+                                    if (rm == "y")
+                                    {
+                                        Console.WriteLine("Enter item number");
+                                        int rmv = Convert.ToInt32(Console.ReadLine());
+                                        c.RemoveShoeFromList(myCart, rmv);
+                                        Console.WriteLine("Cart Details");
+                                        c.DisplayCart(myCart);
+                                        c.CulateTotalPrice(myCart);
+                                        break;
+                                    }
+                                    if (rm == "n")
+                                    {
+                                        Console.WriteLine("Cart Details");
+                                        c.DisplayCart(myCart);
+                                        c.CulateTotalPrice(myCart);
+                                        decimal x = c.CulateTotalPrice(myCart); // total to be passed to payment method                                        
+
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Wrong input");
+                                        break;
+                                    }
+                                    Console.ReadLine();
+                                    Console.WriteLine();
+                                    break;
                                 }
-                                Console.ReadLine();
-                                Console.WriteLine();
-                                break;
+
                             }
                             else
                             {

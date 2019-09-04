@@ -6,7 +6,7 @@ using System.Text;
 namespace POSTerminal
 {
     public class Cart : Product
-    {       
+    {
         public int Quantity { get; set; }
         public decimal Total { get; set; } = 0;
         public Cart(string name, string description, string category, decimal price, int quantity) : base(name, description, category, price)
@@ -24,16 +24,22 @@ namespace POSTerminal
             return $" {Quantity} {Name}  ${Price} ${Total} ";
         }
 
-        public void CulateTotalPrice(List<Cart> myCart)
+        public decimal CulateTotalPrice(List<Cart> myCart)
         {
+
             var totalPrice = 0m;
+            
             foreach (var product in myCart)
             {
                 totalPrice += product.Total;
             }
-            
-            Console.Write("Total to be paid: ");
-            Console.WriteLine("{0:c}", totalPrice);
+
+            decimal salesTax = totalPrice * 0.06m;
+            decimal grandTotal = totalPrice - salesTax;
+            Console.WriteLine("Subtotal: {0:c}", totalPrice);
+            Console.WriteLine("Total sales Tax: {0:c}", salesTax);
+            Console.WriteLine("Grand Total {0:c}", grandTotal);
+            return grandTotal;
         }
         public void DisplayCart(List<Cart> myCart)
         {
@@ -46,7 +52,7 @@ namespace POSTerminal
         }
         public List<Cart> RemoveShoeFromList(List<Cart> myCartList, int index)
         {
-            myCartList.RemoveAt(index-1);
+            myCartList.RemoveAt(index - 1);
             return myCartList;
         }
 
