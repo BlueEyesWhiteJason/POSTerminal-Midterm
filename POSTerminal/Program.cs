@@ -8,7 +8,6 @@ namespace POSTerminal
         static void Main(string[] args)
         {
 
-            MakePayment(49.95);
 
             
         }
@@ -22,36 +21,46 @@ namespace POSTerminal
             Payment c;
             while (true)
             {
-              
-                int num = int.Parse(Console.ReadLine()); //TODO int validation
 
-          
-       
-                if (num == 1)
+                try
                 {
-                    c = new Cash();
-                    break;
-                    
-                }
-                else if (num == 2)
-                {
-                    c = new Credit();
-                    break;
+                    int num = int.Parse(Console.ReadLine()); //TODO int validation
+                    if (num == 1)
+                    {
+                        c = new Cash();
+                        break;
+
+                    }
+                    else if (num == 2)
+                    {
+                        c = new Credit();
+                        break;
 
 
+                    }
+                    else if (num == 3)
+                    {
+                        c = new Check();
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Please enter a number from the list: ");
+                    }
+
                 }
-                else if (num == 3)
+                catch (FormatException e)
                 {
-                    c = new Check();
-                    break;
+                    Console.Write("Please enter a number from the list: ");
+                    continue;
                 }
-                else
-                {
-                    Console.WriteLine("Please choose a number from the list: ");
-                }
+
      
             }
+            Console.Clear();
             c.GetPaymentInfo(total);
+            Console.Clear();
+
             c.PrintToReceipt(total);
         }
     }

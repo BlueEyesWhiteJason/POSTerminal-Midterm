@@ -24,7 +24,7 @@ namespace POSTerminal
             // Exp date
             do
             {
-                Console.WriteLine("Expiration Date:");
+                Console.WriteLine("Expiration Date (Format: MMYY):");
                 ExpDate = Console.ReadLine().Trim(); 
                 Console.WriteLine(CheckCCExp(ExpDate));
             }
