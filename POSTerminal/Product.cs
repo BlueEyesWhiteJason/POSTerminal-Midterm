@@ -1,12 +1,13 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 namespace POSTerminal
 {
     public class Product
     {
+
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -47,6 +48,5 @@ namespace POSTerminal
         {
             return $" {Name}  {Description}  {Category}  ${Price}";
         }
-
     }
 }
