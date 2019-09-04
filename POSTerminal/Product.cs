@@ -5,7 +5,6 @@ namespace POSTerminal
     {
         public Product()
         {
-
         }
     }
 }
