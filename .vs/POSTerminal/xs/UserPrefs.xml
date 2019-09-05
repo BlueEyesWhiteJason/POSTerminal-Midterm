@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{802E5CBA-AE7C-4A89-B1D8-CB0E876C567D}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="POSTerminal/Product.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="POSTerminal/Credit.cs">
     <Files>
       <File FileName="POSTerminal/Program.cs" Line="14" Column="8" />
       <File FileName="POSTerminal/Credit.cs" Line="205" Column="1" />
       <File FileName="POSTerminal/Cash.cs" Line="55" Column="1" />
       <File FileName="POSTerminal/Check.cs" />
-      <File FileName="POSTerminal/Product.cs" Line="11" Column="1" />
+      <File FileName="POSTerminal/Product.cs" Line="12" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="POSTerminal" expanded="True">
             <Node name="POSTerminal" expanded="True">
-              <Node name="Product.cs" selected="True" />
+              <Node name="Credit.cs" selected="True" />
             </Node>
           </Node>
         </State>
