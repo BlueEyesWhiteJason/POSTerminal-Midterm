@@ -45,21 +45,28 @@ namespace POSTerminal
                         total = quantity * myProductList[a].Price;
                         price += quantity * (myProductList[a].Price); // accessing price of shoe                        
                         myCart.Add(new Cart($"{myProductList[a].Name}", $"{myProductList[a].Description}", $"{myProductList[a].Category}", myProductList[a].Price, quantity));
-                        
+                        Console.Clear();
+                        Console.WriteLine("Your Cart:");
                         c.DisplayCart(myCart);
                         //   c.CulateTotalPrice(myCart);                      
                         bool goodAnswer = false;
                         string response;
                         while (goodAnswer == false)
                         {
-                            Console.WriteLine("Would you like to continue? (yes/no)");
+                            Console.WriteLine("Would you like to continue shopping? (yes/no)");
                             response = Console.ReadLine().Trim().ToLower();
                             if (response == "yes")
                             {
+                                for (int i = 0; i < myProductList.Count; i++)
+                                {
+                                    Console.WriteLine($"{i + 1}. " + myProductList[i]);
+                                }
+
                                 break;
                             }
                             else if (response == "no")
                             {
+                                Console.Clear();
                                 answer = false;
                                 Console.WriteLine("Cart Details");
                                 c.DisplayCart(myCart);
@@ -68,6 +75,7 @@ namespace POSTerminal
                                 {
                                     Console.WriteLine("do you wish to remove any item?(y/n)");
                                     string rm = Console.ReadLine().Trim().ToLower();
+                                    Console.Clear();
                                     if (rm == "y")
                                     {
                                         Console.WriteLine("Enter item number");
@@ -80,9 +88,9 @@ namespace POSTerminal
                                     }
                                     if (rm == "n")
                                     {
-                                        Console.WriteLine("Cart Details");
-                                        c.DisplayCart(myCart);
-                                        c.CulateTotalPrice(myCart);
+                                        //Console.WriteLine("Cart Details");
+                                        ////c.DisplayCart(myCart);
+                                        //c.CulateTotalPrice(myCart);
                                         double x = c.CulateTotalPrice(myCart); // total to be passed to payment method                                        
                                         MakePayment(x);
 
@@ -162,7 +170,7 @@ namespace POSTerminal
 
      
             }
-            Console.Clear();
+            
             c.GetPaymentInfo(total);
             Console.Clear();
 

@@ -35,7 +35,7 @@ namespace POSTerminal
             }
 
             double salesTax = totalPrice * 0.06;
-            double grandTotal = totalPrice - salesTax;
+            double grandTotal = totalPrice + salesTax;
             Console.WriteLine("Subtotal: {0:c}", totalPrice);
             Console.WriteLine("Total sales Tax: {0:c}", salesTax);
             Console.WriteLine("Grand Total {0:c}", grandTotal);
