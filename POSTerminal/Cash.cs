@@ -1,35 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace POSTerminal
 {
     public class Cash : Payment
     {
         double change;
-        double dosh;
+        double dosh = -1;
         public Cash()
         {
         }
-
         public override void GetPaymentInfo(double total)
         {
-            Console.WriteLine("How much cash will you be giving us today?");
+            Console.WriteLine("How much cash will you be somehow inserting into your computer today?");
 
-            dosh = double.Parse(Console.ReadLine());
+            while (true)
+            {
+                try
+                {
+                    dosh = double.Parse(Console.ReadLine());
 
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Non-numeric input detected");
+                }
+                if (dosh < total)
+                {
+                    Console.WriteLine("Please enter a number equal to or greater than your order total:");
+                }
+                else
+                {
+                    break;
+                }
+
+            }
             change = dosh - total;
 
-
         }
-
         public override void PrintToReceipt(double total)
         {
-            Console.WriteLine($"Total: {total}");
-            Console.WriteLine($"Cash tendered: {dosh}");
-            Console.WriteLine($"Change owed: {change}");
+            Console.WriteLine($"Total: $" + total.ToString("#.##"));
+            Console.WriteLine($"Cash tendered: $" + dosh.ToString("#.##"));
+            Console.WriteLine($"Change owed: $" + change.ToString("0.##"));
         }
     }
 }

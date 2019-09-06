@@ -5,3 +5,5 @@ C:\Users\GC Student\Source\Repos\POSTerminal\POSTerminal\obj\Debug\POSTerminal.c
 C:\Users\GC Student\Source\Repos\POSTerminal\POSTerminal\obj\Debug\POSTerminal.csproj.CoreCompileInputs.cache
 C:\Users\GC Student\Source\Repos\POSTerminal\POSTerminal\obj\Debug\POSTerminal.exe
 C:\Users\GC Student\Source\Repos\POSTerminal\POSTerminal\obj\Debug\POSTerminal.pdb
+C:\Users\GC Student\Source\myRepo\POSTerminal-Midterm\POSTerminal\obj\Debug\POSTerminal.exe
+C:\Users\GC Student\Source\myRepo\POSTerminal-Midterm\POSTerminal\obj\Debug\POSTerminal.pdb
