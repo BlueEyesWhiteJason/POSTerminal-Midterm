@@ -46,9 +46,9 @@ namespace POSTerminal
 
         public override void PrintToReceipt(double total)
         {
-            Console.WriteLine($"Total: {total}");
-            Console.WriteLine($"Cash tendered: {dosh}");
-            Console.WriteLine($"Change owed: {change}");
+            Console.WriteLine("Total: {0:c}", total);
+            Console.WriteLine("Cash tendered: {0:c}", dosh);
+            Console.WriteLine("Change owed: {0:c}", change);
         }
     }
 }

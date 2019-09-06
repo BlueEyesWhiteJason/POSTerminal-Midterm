@@ -33,7 +33,8 @@ namespace POSTerminal
                     int quantity = 0;
                     double total = 1;
                     List<Cart> myCart = new List<Cart>();
-                    while (true)
+                    bool cont = true;
+                    while (cont)
                     {
                         Console.WriteLine("Choose shoe number to be Added To Cart");
                         Console.WriteLine();
@@ -51,11 +52,10 @@ namespace POSTerminal
                         //   c.CulateTotalPrice(myCart);                      
                         bool goodAnswer = false;
                         string response;
-                        while (goodAnswer == false)
-                        {
-                            Console.WriteLine("Would you like to continue shopping? (yes/no)");
+                       
+                            Console.WriteLine("Would you like to continue shopping? (y/n)");
                             response = Console.ReadLine().Trim().ToLower();
-                            if (response == "yes")
+                            if (response == "y")
                             {
                                 for (int i = 0; i < myProductList.Count; i++)
                                 {
@@ -64,14 +64,15 @@ namespace POSTerminal
 
                                 break;
                             }
-                            else if (response == "no")
+                            else if (response == "n")
                             {
                                 Console.Clear();
                                 answer = false;
                                 Console.WriteLine("Cart Details");
                                 c.DisplayCart(myCart);
                                 c.CulateTotalPrice(myCart);
-                                while (true)
+                            bool remove = true;
+                                while (remove)
                                 {
                                     Console.WriteLine("do you wish to remove any item?(y/n)");
                                     string rm = Console.ReadLine().Trim().ToLower();
@@ -82,18 +83,18 @@ namespace POSTerminal
                                         int rmv = Convert.ToInt32(Console.ReadLine());
                                         c.RemoveShoeFromList(myCart, rmv);
                                         Console.WriteLine("Cart Details");
-                                        c.DisplayCart(myCart);
+                                        //c.DisplayCart(myCart);
                                         c.CulateTotalPrice(myCart);
                                         break;
                                     }
                                     if (rm == "n")
                                     {
-                                        //Console.WriteLine("Cart Details");
-                                        ////c.DisplayCart(myCart);
-                                        //c.CulateTotalPrice(myCart);
+                                       
                                         double x = c.CulateTotalPrice(myCart); // total to be passed to payment method                                        
-                                        MakePayment(x);
-
+                                        
+                                        PrintReceipt(myCart, MakePayment(x), x);
+                                    cont = false;
+                                    remove = false;
 
                                     }
                                     else
@@ -101,9 +102,7 @@ namespace POSTerminal
                                         Console.WriteLine("Wrong input");
                                         break;
                                     }
-                                    Console.ReadLine();
-                                    Console.WriteLine();
-                                    break;
+                                
                                 }
 
                             }
@@ -113,7 +112,7 @@ namespace POSTerminal
                                 continue;
                             }
                         }
-                    }
+                    
 
                 }
                 catch (Exception e)
@@ -125,7 +124,7 @@ namespace POSTerminal
             }
         }
 
-        public static void MakePayment(double total)
+        public static Payment MakePayment(double total)
         {
             Console.WriteLine("How will you be making your payment today?");
             Console.WriteLine("1. Cash");
@@ -174,7 +173,23 @@ namespace POSTerminal
             c.GetPaymentInfo(total);
             Console.Clear();
 
+            return c;
+
+        }
+
+        public static void PrintReceipt(List<Cart> cart, Payment c, double total)
+        {
+            Console.WriteLine("SALES RECEIPT");
+            Console.WriteLine("______________________________");
+            Console.WriteLine("ITEMS PURCHASED");
+            cart[0].DisplayCart(cart);
+            Console.WriteLine();
+            Console.WriteLine("______________________________");
+            Console.WriteLine("PAYMENT");
+
             c.PrintToReceipt(total);
+            Console.WriteLine();
+            Console.WriteLine("HAVE A NICE DAY!");
 
         }
     }

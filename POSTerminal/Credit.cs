@@ -44,10 +44,12 @@ namespace POSTerminal
 
         public override void PrintToReceipt(double total)
         {
+            Console.WriteLine("Total paid: {0:c}", total);
             Console.WriteLine(CheckCreditCardNum(ccNum));
             Console.WriteLine($"Number: {ccNum}");
             Console.WriteLine($"Exp. Date: {ExpDate}");
             Console.WriteLine($"CCV: {ccv}");
+            
            
         }
 

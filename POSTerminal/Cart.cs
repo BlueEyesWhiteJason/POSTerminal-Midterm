@@ -46,7 +46,7 @@ namespace POSTerminal
 
             for (int i = 0; i < myCart.Count; i++)
             {
-                Console.WriteLine($"{i + 1}" + myCart[i]);
+                Console.WriteLine($"{i + 1}. " + myCart[i]);
 
             }
         }

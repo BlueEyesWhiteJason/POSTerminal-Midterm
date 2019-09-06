@@ -30,7 +30,7 @@ namespace POSTerminal
 
         public override void PrintToReceipt(double total)
         {
-            Console.WriteLine($"{total} paid by check number {checkNum}");
+            Console.WriteLine($"{0:c} paid by check number {checkNum}", total);
             
         }
     }
